@@ -1,9 +1,12 @@
-from multiprocessing import Lock
+import multiprocessing
 
-class Inventario:
-    def __init__(self):
-        self.stock = {"item1": 10, "item2": 5, "item3": 20}
-        self.lock = Lock()
+class Inventario(multiprocessing.Process):
+    def __init__(self, stock):
+        super().__init__()
+        self.stock = stock
+        self.lock = multiprocessing.Lock()
+
+    
 
     def actualizar_inventario(self, item, cantidad):
         """Reduce el stock del inventario."""
