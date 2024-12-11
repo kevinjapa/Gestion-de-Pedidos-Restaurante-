@@ -6,8 +6,6 @@ class Inventario(multiprocessing.Process):
         self.stock = stock
         self.lock = multiprocessing.Lock()
 
-    
-
     def actualizar_inventario(self, item, cantidad):
         """Reduce el stock del inventario."""
         with self.lock:

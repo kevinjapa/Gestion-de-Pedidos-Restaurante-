@@ -17,6 +17,3 @@ class GestorPedidos(multiprocessing.Process):
             pedido.estado = "en preparación"
             return pedido
         return None
-    
-    def pedidos(self):
-        return self.queue.qsize()
